@@ -1,42 +1,31 @@
-import { Close } from "@mui/icons-material";
-import React, { useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
+import React from "react";
 import Link from "next/link";
 
-const MobileNavbar = ({ check, openSubMenu, toggleSubMenu }) => {
+const MobileNavbar = ({ check }) => {
   return (
     <div className={check ? "active-mobile-menu mobile-menu" : "mobile-menu"}>
-      <ul>
-        <Link href={"/"}>
+      <ul className="landing-mobile-menu">
+        <Link href={"#home"}>
           <li>Home</li>
         </Link>
-
-        <Link href={"/about-us"}>
-          <li>About Us</li>
+        <Link href={"#about"}>
+          <li>About</li>
         </Link>
-
-        <li className="sub-menu" onClick={() => toggleSubMenu("more")}>
-          <div className="menu-item">
-            <p>More</p>
-            <div className="icon-container">
-              {openSubMenu.more ? <Close /> : <AddIcon />}
-            </div>
-          </div>
-          {openSubMenu.more && (
-            <ul>
-              <Link href={"/blogs"}>
-                <li className="sub-menu">
-                  <p>Blogs</p>
-                </li>
-              </Link>
-              <Link href={"/faq"}>
-                <li className="sub-menu">
-                  <p>FAQ&apos;s</p>
-                </li>
-              </Link>
-            </ul>
-          )}
-        </li>
+        <Link href={"#services"}>
+          <li>Services</li>
+        </Link>
+        <Link href={"#businesses"}>
+          <li>Our Businesses</li>
+        </Link>
+        <Link href={"#leadership"}>
+          <li>Leadership</li>
+        </Link>
+        <Link href={"#faq"}>
+          <li>FAQ</li>
+        </Link>
+        <Link href={"#contact"}>
+          <li>Contact Us</li>
+        </Link>
       </ul>
     </div>
   );

@@ -3,6 +3,7 @@ import Navbar from "@/components/common/Navbar/Navbar";
 import Footer from "@/components/common/Footer/Footer";
 import "../styles/global.css";
 import "../styles/main.css";
+import "../styles/landing-sections.css";
 import { ToastContainer } from "react-toastify";
 import { SettingsProvider } from "@/context/useSiteSettings";
 import { useRouter } from "next/router";
