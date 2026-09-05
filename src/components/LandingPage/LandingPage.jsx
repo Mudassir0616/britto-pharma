@@ -1,13 +1,20 @@
-import { East } from "@mui/icons-material";
 import React from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import WhatWeDo from "./WhatWeDo";
+import OurBusinesses from "./OurBusinesses";
+import GrowthStory from "./GrowthStory";
+import GlobalPresence from "./GlobalPresence";
+import WhyChoose from "./WhyChoose";
+import Leadership from "./Leadership";
+import LandingFaq from "./LandingFaq";
+import ContactSection from "./ContactSection";
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <div className="banner">
+      <div className="banner" id="home">
         <video className="banner-video" autoPlay muted loop playsInline>
           <source src="/videos/banner.mp4" type="video/mp4" />
         </video>
@@ -25,14 +32,16 @@ const LandingPage = () => {
               global distribution.
             </p>
 
-            <button className="cta-btn">Partner With Us →</button>
+            <a className="cta-btn banner-cta" href="#contact">
+              Partner With Us →
+            </a>
           </div>
         </div>
       </div>
 
-      <section className="flex-container container flask-container">
+      <section className="flex-container container flask-container" id="about">
         <div className="img-side">
-          <img src="/images/flasks.png" alt="" />
+          <img src="/images/flasks.png" alt="Pharmaceutical laboratory flasks" />
         </div>
 
         <div className="content-side">
@@ -50,6 +59,15 @@ const LandingPage = () => {
           </p>
         </div>
       </section>
+
+      <WhatWeDo />
+      <OurBusinesses />
+      <GrowthStory />
+      <GlobalPresence />
+      <WhyChoose />
+      <Leadership />
+      <LandingFaq />
+      <ContactSection />
     </div>
   );
 };
