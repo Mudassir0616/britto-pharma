@@ -1,7 +1,6 @@
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import MobileNavbar from "./MobileNavbar";
 import Link from "next/link";
 
@@ -31,8 +30,6 @@ const Navbar = () => {
     }));
   };
 
-  const [moreOpen, setmoreOpen] = useState(false);
-
   useEffect(() => {
     if (currentScrollY === 0) {
       // Topmost position: show navbar without floating-nav
@@ -49,7 +46,7 @@ const Navbar = () => {
     }
 
     setLastScrollY(currentScrollY);
-  }, [currentScrollY, lastScrollY]);
+  }, [currentScrollY, lastScrollY, check]);
 
   useEffect(() => {
     gsap.to(navContainerRef.current, {
@@ -123,45 +120,29 @@ const Navbar = () => {
 
           {/* <!-- Navigation Links --> */}
           <div className="nav-links-container">
-            <div className="nav-links">
-              {/* <!-- Replace `navItems` with actual nav items --> */}
-              <a href={"/"} className="nav-link">
+            <div className="nav-links landing-nav-links">
+              <a href="#home" className="nav-link">
                 Home
               </a>
-              <a href={"/about-us"} className="nav-link">
-                About Us
+              <a href="#about" className="nav-link">
+                About
+              </a>
+              <a href="#services" className="nav-link">
+                Services
+              </a>
+              <a href="#businesses" className="nav-link">
+                Our Businesses
+              </a>
+              <a href="#leadership" className="nav-link">
+                Leadership
+              </a>
+              <a href="#faq" className="nav-link">
+                FAQ
               </a>
 
-              <div
-                className="nav-item"
-                onMouseEnter={() => setmoreOpen(true)}
-                onMouseLeave={() => setmoreOpen(false)}
-              >
-                <div className="categories-dropdown">
-                  Resources
-                  {moreOpen ? <ExpandLess /> : <ExpandMore />}
-                </div>
-                {moreOpen && (
-                  <ul
-                    className="dropdown-menu"
-                    style={{
-                      gridTemplateColumns: "repeat(1, 1fr)",
-                    }}
-                  >
-                    <Link href={"/blogs"}>
-                      <li>Blogs</li>
-                    </Link>
-                    <Link href={"/faqs"}>
-                      <li>FAQ&apos;s</li>
-                    </Link>
-                    <Link href="/case-study">
-                      <li>Case Studies</li>
-                    </Link>
-                  </ul>
-                )}
-              </div>
-
-              <button className="cta-btn">Book An Appointment</button>
+              <a href="#contact" className="cta-btn nav-cta">
+                Contact Us
+              </a>
             </div>
           </div>
 
